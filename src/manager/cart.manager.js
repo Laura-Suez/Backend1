@@ -28,7 +28,7 @@ export class CartManager {
     carts.push(cart);
     await fs.promises.writeFile(this.path, JSON.stringify(carts));
 
-    return carts;
+    return cart;
   }
 
   async addProductToCart(cart, product, quantity) {
