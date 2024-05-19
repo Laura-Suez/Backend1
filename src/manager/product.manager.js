@@ -1,7 +1,7 @@
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
 
-import { getValueOrDefault, isNil } from "../utils.js";
+import { getValueOrDefault, isNil } from "../utils/utils.js";
 
 export class ProductManager {
   constructor(path) {
