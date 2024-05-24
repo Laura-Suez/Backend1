@@ -12,6 +12,10 @@ const cartManager = new CartManager("./src/data/carritos.json");
 router.get("/:cid", async (req, res) => {
   try {
     const cart = await cartManager.getCartsById(req.params.cid);
+    if (isNil(cart)) {
+      return res.status(404).json({ msg: "Carrito no encontrado." });
+    }
+
     const products = [];
     for (const product of cart.products) {
       const fullProduct = await productManager.getProductById(product.id);
@@ -21,7 +25,11 @@ router.get("/:cid", async (req, res) => {
       }
       products.push(fullProduct);
     }
-    res.status(200).json(products);
+    const response = {
+      id: cart.id,
+      products: products,
+    };
+    res.status(200).json(response);
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: error.message });
