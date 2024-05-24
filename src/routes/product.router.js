@@ -32,7 +32,13 @@ const productCreationValidator = (req, res, next) => {
 
 router.get("/", async (req, res) => {
   try {
-    const products = await productManager.getProducts();
+    let products = await productManager.getProducts();
+    const limit = req.query.limit;
+
+    if (!isNil(limit)) {
+      products = products.slice(0, limit);
+    }
+
     res.status(200).json(products);
   } catch (error) {
     console.log(error);
