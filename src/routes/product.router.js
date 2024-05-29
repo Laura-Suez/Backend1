@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { ProductManager } from "../manager/product.manager.js";
-import { isNil } from "../utils/utils.js";
+import { isNil } from "../utils.js";
 
 const productManager = new ProductManager("./src/data/productos.json");
 

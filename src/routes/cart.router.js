@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import { ProductManager } from "../manager/product.manager.js";
 import { CartManager } from "../manager/cart.manager.js";
-import { getValueOrDefault, isNil } from "../utils/utils.js";
+import { getValueOrDefault, isNil } from "../utils.js";
 
 const router = Router();
 
