@@ -1,18 +1,26 @@
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/index.js"></script>
-
 <h2>Agregar un producto</h2>
-<form id="form">
-    <label>Producto: </label><input type="text" name="name" id="name">
-    <label>Descripción: </label><input type="text" name="name" id="description">
-    <label>Categoría: </label><input type="text" name="category" id="category">
+<form id="add-product">
+    <label>Producto: </label><input type="text" name="title" id="title">
+    <label>Descripción: </label><input type="text" name="description" id="description">
+    <label>Código: </label><input type="number" name="code" id="code">
     <br><br>
     <label>Precio: </label><input type="number" name="price" id="price">
-    <label>Código: </label><input type="number" name="code" id="code">
     <label>Stock: </label><input type="number" name="stock" id="stock">
     <br><br>
 
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Agregar">
+</form>
+
+<h2>Eliminar un producto</h2>
+<form id="delete-product">
+    <label>Código: </label><input type="number" name="code" id="code-delete">
+    <br><br>
+
+    <input type="submit" value="Eliminar">
 </form>
 
 <h2>Lista de productos</h2>
+<div id="products"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>
